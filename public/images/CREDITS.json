@@ -4,11 +4,6 @@
   "photographer": "Aalo Lens",
   "alt": "Modern living room with large windows and comfortable seating"
  },
- "site/about-main": {
-  "unsplash": "https://unsplash.com/photos/nhzhEZvhZ1M",
-  "photographer": "Ali Moradi",
-  "alt": "a living room filled with furniture and a chandelier"
- },
  "site/about-detail": {
   "unsplash": "https://unsplash.com/photos/pdCTX1harH4",
   "photographer": "Karolina Grabowska",
@@ -308,5 +303,10 @@
   "unsplash": "https://unsplash.com/photos/KR4u_ejqQGw",
   "photographer": "Haris Illahi",
   "alt": "Modern lobby with contemporary art installation and seating area"
+ },
+ "site/about-living": {
+  "unsplash": "https://unsplash.com/photos/7-9QPJAB6es",
+  "photographer": "Joao Vitor Torres",
+  "alt": "Modern living room with dark furniture and planetary art"
  }
 }

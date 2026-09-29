@@ -13,7 +13,7 @@ type Props = {
 };
 
 const base =
-  "group relative inline-flex min-h-12 items-center justify-center gap-3 overflow-hidden px-7 text-[0.7rem] font-semibold uppercase tracking-[0.2em] transition-colors duration-500";
+  "group relative inline-flex min-h-12 items-center whitespace-nowrap justify-center gap-3 overflow-hidden px-7 text-[0.7rem] font-semibold uppercase tracking-[0.2em] transition-colors duration-500";
 
 const styles: Record<Variant, Record<Tone, string>> = {
   solid: {

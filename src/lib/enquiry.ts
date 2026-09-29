@@ -77,3 +77,20 @@ export function validateEnquiry(data: Partial<Enquiry>): EnquiryErrors {
 
   return errors;
 }
+
+/**
+ * Leads captured by the website chat: name and phone are required, email is
+ * optional, and the message is generated from the conversation.
+ */
+export function validateChatLead(data: Partial<Enquiry>): EnquiryErrors {
+  const all = validateEnquiry({
+    ...data,
+    email: data.email || "chat@placeholder.invalid",
+    projectType: data.projectType || "Other",
+    budget: data.budget || "Not sure yet",
+  });
+  const errors: EnquiryErrors = {};
+  for (const k of ["name", "phone", "projectType", "budget", "message"] as const) if (all[k]) errors[k] = all[k];
+  if (data.email && all.email) errors.email = all.email;
+  return errors;
+}

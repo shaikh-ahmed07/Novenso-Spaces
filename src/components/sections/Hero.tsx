@@ -22,7 +22,7 @@ export default function Hero() {
     <section
       ref={ref}
       aria-label="Introduction"
-      className="relative flex min-h-[100svh] w-full items-end overflow-hidden bg-ink text-ivory"
+      className="relative flex w-full items-end md:min-h-[100svh] overflow-hidden bg-ink text-ivory"
     >
       <m.div
         className="absolute inset-0 will-change-transform"
@@ -49,7 +49,7 @@ export default function Hero() {
 
       <m.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="container-x relative pb-24 pt-32 sm:pb-32 lg:pb-36"
+        className="container-x relative pb-24 pt-28 sm:pb-32 md:pt-32 lg:pb-36"
       >
         <m.p
           className="eyebrow mb-7 flex items-center gap-4 text-brass-light"
@@ -81,7 +81,7 @@ export default function Hero() {
             bespoke interior solutions to create spaces that are built to perform and designed to
             inspire.
           </p>
-          <div className="flex flex-col gap-3 xs:flex-row">
+          <div className="flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/projects" tone="light">
               Explore Our Work
             </ButtonLink>

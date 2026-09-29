@@ -30,7 +30,8 @@ npm run lint
 
 All copy and data live in `src/data/`. You rarely need to touch components.
 
-- **Company info** (name, email, domain): `src/data/site.ts`
+- **Company info** (name, email, phone, WhatsApp number, domain): `src/data/site.ts`
+- **Chat conversation** (all questions, replies and answers to common questions): `src/components/chat/script.ts`
 - **Services**: `src/data/services.ts`
 - **Process steps, differentiators, capabilities, elite services**: `src/data/content.ts`
 - **Projects**: `src/data/projects.ts`
@@ -51,7 +52,7 @@ Every image is a local file under `public/images/`. Replace a file with one of t
 
 - [ ] **Replace placeholder projects.** The seven projects in `src/data/projects.ts` are illustrative, with stock photography, names and locations. Replace them with real Novenso Spaces work.
 - [ ] **Replace stock photography.** Current images are from Unsplash (credits in `public/images/CREDITS.json`).
-- [ ] **Connect the enquiry form** to email/CRM: implement `deliverEnquiry()` in `src/app/api/enquiry/route.ts` (a Resend example is included) and add the API key as an environment variable. Until then, submissions are validated and logged on the server only.
+- [ ] **Connect the enquiry form** (also receives chat call-back requests, marked `source: "chat"`) to email/CRM: implement `deliverEnquiry()` in `src/app/api/enquiry/route.ts` (a Resend example is included) and add the API key as an environment variable. Until then, submissions are validated and logged on the server only.
 - [ ] Confirm the production domain in `src/data/site.ts` (`url`). It is used for canonical URLs, Open Graph and the sitemap.
 
 ## Structure

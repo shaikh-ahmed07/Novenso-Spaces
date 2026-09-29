@@ -4,7 +4,7 @@ import "./globals.css";
 import { site } from "@/data/site";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import MobileActionBar from "@/components/layout/MobileActionBar";
+import ContactDock from "@/components/layout/ContactDock";
 import MotionProvider from "@/components/motion/MotionProvider";
 
 // Variable fonts: one file per style covers every weight we use.
@@ -82,6 +82,7 @@ const organizationJsonLd = {
   alternateName: site.name,
   url: site.url,
   email: site.email,
+  telephone: site.phone.tel,
   logo: `${site.url}/brand/novenso-logo-full.jpg`,
   image: `${site.url}/images/hero/home-hero.jpg`,
   description: site.description,
@@ -102,7 +103,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Navbar />
           <main id="main">{children}</main>
           <Footer />
-          <MobileActionBar />
+          <ContactDock />
         </MotionProvider>
         <script
           type="application/ld+json"

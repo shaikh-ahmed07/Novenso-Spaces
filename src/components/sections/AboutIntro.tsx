@@ -34,10 +34,10 @@ export default function AboutIntro({ showLink = true }: Props) {
           {/* Imagery */}
           <div className="relative md:col-span-6 lg:col-span-6">
             <ImageReveal
-              src="/images/site/about-main.jpg"
-              alt="Living room with grey panelled walls, sculptural ring chandelier and marble floor"
+              src="/images/site/about-living.jpg"
+              alt="Dark living room with a low leather sofa, bronze artworks and glowing pendant lights"
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="aspect-[4/3] w-full md:aspect-[4/5] lg:aspect-[5/5]"
+              className="aspect-[4/3] w-full md:aspect-[4/5] lg:aspect-[5/4]"
             />
             <div className="absolute -bottom-8 -right-2 w-[38%] border-[6px] border-ivory sm:w-[34%] md:-right-8 md:border-[10px] lg:-bottom-12">
               <ParallaxImage

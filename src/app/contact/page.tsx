@@ -3,6 +3,8 @@ import PageHero from "@/components/sections/PageHero";
 import ContactForm from "@/components/sections/ContactForm";
 import FadeIn from "@/components/motion/FadeIn";
 import { site } from "@/data/site";
+import { whatsappLink } from "@/lib/whatsapp";
+import { PhoneIcon, WhatsAppIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -49,6 +51,32 @@ export default function ContactPage() {
               >
                 {site.email}
               </a>
+            </FadeIn>
+
+            <FadeIn delay={0.12} className="mt-10 border-t border-ink/10 pt-8">
+              <p className="eyebrow text-ash">Phone &amp; WhatsApp</p>
+              <a
+                href={`tel:${site.phone.tel}`}
+                className="mt-3 block font-display text-2xl text-ink transition-colors hover:text-brass-deep md:text-[1.7rem]"
+              >
+                {site.phone.display}
+              </a>
+              <div className="mt-5 flex flex-col gap-3 xs:flex-row">
+                <a
+                  href={whatsappLink("Hello Novenso Spaces, I'd like to discuss a project.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-h-12 items-center justify-center gap-2.5 bg-[#25D366] px-5 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-90"
+                >
+                  <WhatsAppIcon className="h-5 w-5" /> WhatsApp us
+                </a>
+                <a
+                  href={`tel:${site.phone.tel}`}
+                  className="flex min-h-12 items-center justify-center gap-2.5 border border-ink/20 px-5 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-ink transition-colors hover:border-ink"
+                >
+                  <PhoneIcon className="h-4 w-4" /> Call
+                </a>
+              </div>
             </FadeIn>
 
             <FadeIn delay={0.15} className="mt-10 border-t border-ink/10 pt-8">

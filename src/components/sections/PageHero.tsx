@@ -34,7 +34,7 @@ export default function PageHero({
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   const height =
-    size === "lg" ? "min-h-[92svh]" : "min-h-[78svh] md:min-h-[82svh]";
+    size === "lg" ? "md:min-h-[92svh]" : "md:min-h-[82svh]";
 
   return (
     <section ref={ref} className={`relative flex ${height} items-end overflow-hidden bg-ink text-ivory`}>
@@ -49,7 +49,7 @@ export default function PageHero({
       </m.div>
       <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-ink/40" />
 
-      <div className="container-x relative pb-10 pt-32 md:pb-20 md:pt-36">
+      <div className="container-x relative pb-10 pt-28 md:pb-20 md:pt-36">
         <m.p
           className="eyebrow mb-6 flex items-center gap-4 text-brass-light"
           initial={{ opacity: 0, y: 12 }}

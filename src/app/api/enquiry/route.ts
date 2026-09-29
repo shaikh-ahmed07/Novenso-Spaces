@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { validateEnquiry, type Enquiry } from "@/lib/enquiry";
+import { validateChatLead, validateEnquiry, type Enquiry } from "@/lib/enquiry";
 
 /**
  * POST /api/enquiry
@@ -10,7 +10,7 @@ import { validateEnquiry, type Enquiry } from "@/lib/enquiry";
  * provider's API key to your environment variables.
  */
 export async function POST(request: Request) {
-  let body: Partial<Enquiry> & { website?: string };
+  let body: Partial<Enquiry> & { website?: string; source?: "form" | "chat" };
   try {
     body = await request.json();
   } catch {
@@ -20,23 +20,23 @@ export async function POST(request: Request) {
   // Honeypot: real visitors never fill this hidden field.
   if (body.website) return NextResponse.json({ ok: true });
 
-  const errors = validateEnquiry(body);
+  const errors = body.source === "chat" ? validateChatLead(body) : validateEnquiry(body);
   if (Object.keys(errors).length > 0) {
     return NextResponse.json({ ok: false, errors }, { status: 422 });
   }
 
   const enquiry: Enquiry = {
     name: String(body.name).trim(),
-    email: String(body.email).trim(),
+    email: String(body.email ?? "").trim(),
     phone: String(body.phone).trim(),
     company: String(body.company ?? "").trim(),
-    projectType: String(body.projectType),
-    budget: String(body.budget),
+    projectType: String(body.projectType || "Other"),
+    budget: String(body.budget || "Not sure yet"),
     message: String(body.message).trim(),
   };
 
   try {
-    await deliverEnquiry(enquiry);
+    await deliverEnquiry(enquiry, body.source ?? "form");
   } catch (err) {
     console.error("[enquiry] delivery failed", err);
     return NextResponse.json(
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
   return NextResponse.json({ ok: true });
 }
 
-async function deliverEnquiry(enquiry: Enquiry) {
+async function deliverEnquiry(enquiry: Enquiry, source: "form" | "chat") {
   // TODO: connect an email service. Example with Resend:
   //
   // await fetch("https://api.resend.com/emails", {
@@ -60,10 +60,10 @@ async function deliverEnquiry(enquiry: Enquiry) {
   //   body: JSON.stringify({
   //     from: "Novenso Website <website@novensospace.com>",
   //     to: ["Novensosocial@gmail.com"],
-  //     reply_to: enquiry.email,
-  //     subject: `New enquiry: ${enquiry.projectType} — ${enquiry.name}`,
+  //     reply_to: enquiry.email || undefined,
+  //     subject: `New ${source} enquiry: ${enquiry.projectType} — ${enquiry.name}`,
   //     text: Object.entries(enquiry).map(([k, v]) => `${k}: ${v}`).join("\n"),
   //   }),
   // });
-  console.info("[enquiry] received", { ...enquiry, message: `${enquiry.message.slice(0, 80)}…` });
+  console.info(`[enquiry:${source}] received`, { ...enquiry, message: `${enquiry.message.slice(0, 80)}…` });
 }

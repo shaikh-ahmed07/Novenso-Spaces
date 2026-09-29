@@ -8,6 +8,9 @@ export const site = {
   tagline: "Creating Spaces. Defining Experiences.",
   url: "https://novensospace.com",
   email: "Novensosocial@gmail.com",
+  phone: { display: "+91 85001 03000", tel: "+918500103000" },
+  /** International format without "+" or spaces, as WhatsApp expects. */
+  whatsapp: "918500103000",
   description:
     "Novenso Spaces delivers premium interior design, project management, execution, contracting and bespoke interior solutions for residential, commercial and hospitality spaces.",
   shortDescription:

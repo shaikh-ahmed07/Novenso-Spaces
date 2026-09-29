@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Novenso Spaces design tokens
+   Warm architectural neutrals, deep blacks, and the gold sampled from
+   the Novenso logo as the single accent.
+------------------------------------------------------------------- */
+@theme {
+  --color-ivory: #f7f3ec;
+  --color-bone: #ede5d8; /* sand: alternate light section */
+  --color-stone: #d8cebe;
+  --color-taupe: #9c9282;
+  --color-ash: #5b554c;
+  --color-charcoal: #1b1a18;
+  --color-ink: #0f0e0d;
+  --color-brass: #c18e31;
+  --color-brass-light: #ddb25e;
+  --color-brass-deep: #86601a;
+
+  --font-display: var(--font-display-face), "Bodoni Moda", Georgia, serif;
+  --font-sans: var(--font-sans-face), "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --breakpoint-xs: 26rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--color-brass);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-brass);
+    outline-offset: 4px;
+  }
+
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .container-x {
+      padding-inline: 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-x {
+      padding-inline: 3.5rem;
+    }
+  }
+
+  /* Compact on phones, generous on large screens */
+  .section-y {
+    padding-block: 4rem;
+  }
+  @media (min-width: 768px) {
+    .section-y {
+      padding-block: 6.5rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .section-y {
+      padding-block: 8.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  .display-xl {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.35rem, 8.6vw, 6.25rem);
+  }
+
+  .display-lg {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+    font-size: clamp(1.95rem, 5.4vw, 4.25rem);
+  }
+
+  .display-md {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    font-size: clamp(1.45rem, 3vw, 2.5rem);
+  }
+
+  .lead {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) {
+    .lead {
+      font-size: 1.125rem;
+    }
+  }
+
+  .rule-brass {
+    display: inline-block;
+    height: 1px;
+    width: 2rem;
+    background: var(--color-brass);
+  }
+
+  /* One consistent, warm grade across all photography on the page */
+  .img-grade,
+  main img {
+    filter: saturate(0.86) contrast(1.05) sepia(0.08);
+  }
+
+  /* Horizontal swipe rail for phones; components switch to a grid at md+ */
+  .rail {
+    display: flex;
+    gap: 0.875rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1.25rem;
+    padding-inline: 1.25rem;
+    margin-inline: -1.25rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .rail::-webkit-scrollbar {
+    display: none;
+  }
+  .rail > * {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+  }
+  @media (min-width: 640px) {
+    .rail {
+      scroll-padding-inline: 2rem;
+      padding-inline: 2rem;
+      margin-inline: -2rem;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .pb-safe {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}

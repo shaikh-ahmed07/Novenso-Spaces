@@ -1,0 +1,312 @@
+{
+ "hero/home-hero": {
+  "unsplash": "https://unsplash.com/photos/LqGf5UvHCZ8",
+  "photographer": "Aalo Lens",
+  "alt": "Modern living room with large windows and comfortable seating"
+ },
+ "site/about-main": {
+  "unsplash": "https://unsplash.com/photos/nhzhEZvhZ1M",
+  "photographer": "Ali Moradi",
+  "alt": "a living room filled with furniture and a chandelier"
+ },
+ "site/about-detail": {
+  "unsplash": "https://unsplash.com/photos/pdCTX1harH4",
+  "photographer": "Karolina Grabowska",
+  "alt": "Hand holding color swatches over blueprints and open book"
+ },
+ "site/why": {
+  "unsplash": "https://unsplash.com/photos/TH_3Igq3Rik",
+  "photographer": "Jean-Baptiste D.",
+  "alt": "a person cutting a piece of wood with a pair of scissors"
+ },
+ "site/cta": {
+  "unsplash": "https://unsplash.com/photos/0Lmk3BC5GEE",
+  "photographer": "Levente Gyulai",
+  "alt": "a black and white photo of a living room"
+ },
+ "site/contact": {
+  "unsplash": "https://unsplash.com/photos/fE3kcMhB1oc",
+  "photographer": "Rebecca Chandler",
+  "alt": "a dining room table with chairs around it"
+ },
+ "site/elite-hero": {
+  "unsplash": "https://unsplash.com/photos/h-yxjWf4OSg",
+  "photographer": "Francesco Liotti",
+  "alt": "a yellow couch sitting in a room next to a wall"
+ },
+ "site/projects-hero": {
+  "unsplash": "https://unsplash.com/photos/1LGiB1BDz5M",
+  "photographer": "Amira Aboalnaga",
+  "alt": "living room with white sofa and brown wooden coffee table"
+ },
+ "site/services-hero": {
+  "unsplash": "https://unsplash.com/photos/azdGl7Vq4Hc",
+  "photographer": "JIRAN FAMILY",
+  "alt": "a living room with a lot of white furniture"
+ },
+ "services/interior-design": {
+  "unsplash": "https://unsplash.com/photos/epznqEMFdcA",
+  "photographer": "Janay Peters",
+  "alt": "A couple of cards sitting on top of a table"
+ },
+ "services/interior-pmc": {
+  "unsplash": "https://unsplash.com/photos/ZHRt6KThVOw",
+  "photographer": "GN Group",
+  "alt": "Man standing in a room under construction"
+ },
+ "services/interior-execution": {
+  "unsplash": "https://unsplash.com/photos/3coKbdfnAFg",
+  "photographer": "H&CO",
+  "alt": "man on white ladder"
+ },
+ "services/contracting": {
+  "unsplash": "https://unsplash.com/photos/fAcfdibroFc",
+  "photographer": "Adhitya Sibikumar",
+  "alt": "Man on ladder working on ceiling access panel"
+ },
+ "services/elite-interior": {
+  "unsplash": "https://unsplash.com/photos/jkwKXLxTY_4",
+  "photographer": "Aalo Lens",
+  "alt": "Luxurious modern living room with large sectional sofa"
+ },
+ "services/custom-sofa": {
+  "unsplash": "https://unsplash.com/photos/35sxh3UgL-s",
+  "photographer": "Florida Memory",
+  "alt": "a man working on a leather chair in a shop"
+ },
+ "process/discover": {
+  "unsplash": "https://unsplash.com/photos/IzFXEH0jb0w",
+  "photographer": "K O",
+  "alt": "A wooden table topped with lots of papers"
+ },
+ "process/design": {
+  "unsplash": "https://unsplash.com/photos/SAFF_1rWBqE",
+  "photographer": "SOHAM BANERJEE",
+  "alt": "white printer paper with black pencil"
+ },
+ "process/plan": {
+  "unsplash": "https://unsplash.com/photos/oD7Da13jles",
+  "photographer": "T",
+  "alt": "grayscale photo of chair and table"
+ },
+ "process/execute": {
+  "unsplash": "https://unsplash.com/photos/S40t3CUAk4A",
+  "photographer": "Kevin Ache",
+  "alt": "a couple of men standing on top of a lift"
+ },
+ "process/deliver": {
+  "unsplash": "https://unsplash.com/photos/IUTewwzaFeM",
+  "photographer": "mahmoud azmy",
+  "alt": "a bed room with a neatly made bed and a painting on the wall"
+ },
+ "elite/sofa": {
+  "unsplash": "https://unsplash.com/photos/AHfaIMq-GZI",
+  "photographer": "Alex Plesovskich",
+  "alt": "black throw pillow on black couch"
+ },
+ "elite/furniture": {
+  "unsplash": "https://unsplash.com/photos/RpJIm5Lojyw",
+  "photographer": "Minh \u0110\u1ee9c",
+  "alt": "Carpenter's hands shaping wood on a table saw"
+ },
+ "elite/upholstery": {
+  "unsplash": "https://unsplash.com/photos/5Eh5JMwHw2g",
+  "photographer": "Rosemary Media",
+  "alt": "a white couch with a white pillow"
+ },
+ "elite/decorative": {
+  "unsplash": "https://unsplash.com/photos/nAcDt_XClxI",
+  "photographer": "Alinea Design",
+  "alt": "a chair made out of wooden strips on a white background"
+ },
+ "elite/sourcing": {
+  "unsplash": "https://unsplash.com/photos/VKz7DPaq0n0",
+  "photographer": "Mick Haupt",
+  "alt": "a pile of wood blocks stacked on top of each other"
+ },
+ "elite/components": {
+  "unsplash": "https://unsplash.com/photos/-UMWJ1Uupr4",
+  "photographer": "Liana S",
+  "alt": "Close-up of ornate brass door handles on glass"
+ },
+ "projects/lakeview-villa/hero": {
+  "unsplash": "https://unsplash.com/photos/k1QJxfjsZew",
+  "photographer": "Modunite Ltd",
+  "alt": "a bedroom with a view of the mountains"
+ },
+ "projects/lakeview-villa/1": {
+  "unsplash": "https://unsplash.com/photos/SZ-DsEZxzlg",
+  "photographer": "Pipcke",
+  "alt": "a living room with a white couch and chairs"
+ },
+ "projects/lakeview-villa/2": {
+  "unsplash": "https://unsplash.com/photos/ErDrzSvSNv4",
+  "photographer": "Le Quan",
+  "alt": "a bedroom with a bed and a chair"
+ },
+ "projects/lakeview-villa/3": {
+  "unsplash": "https://unsplash.com/photos/K_Ij57GTXWY",
+  "photographer": "Le Quan",
+  "alt": "A dining room with a table, chairs and a chandelier"
+ },
+ "projects/lakeview-villa/4": {
+  "unsplash": "https://unsplash.com/photos/6BJu73-UJpg",
+  "photographer": "Christian Mackie",
+  "alt": "white ceramic sink"
+ },
+ "projects/skyline-residence/hero": {
+  "unsplash": "https://unsplash.com/photos/ugIfsN9l_q4",
+  "photographer": "Aalo Lens",
+  "alt": "Modern living room with sectional sofa and artwork"
+ },
+ "projects/skyline-residence/1": {
+  "unsplash": "https://unsplash.com/photos/SB3hlhAl2zc",
+  "photographer": "Medea Dzagnidze",
+  "alt": "a bedroom with a large bed and a mirror"
+ },
+ "projects/skyline-residence/2": {
+  "unsplash": "https://unsplash.com/photos/3-GXEUE_sCc",
+  "photographer": "Kam Idris",
+  "alt": "a kitchen with a table and chairs"
+ },
+ "projects/skyline-residence/3": {
+  "unsplash": "https://unsplash.com/photos/BpF47C1KT7Q",
+  "photographer": "SPurno Animation Studio",
+  "alt": "a dining room with a glass table surrounded by chairs"
+ },
+ "projects/skyline-residence/4": {
+  "unsplash": "https://unsplash.com/photos/SWSY0NEicIs",
+  "photographer": "Medea Dzagnidze",
+  "alt": "a bathroom with a tub sink and toilet"
+ },
+ "projects/meridian-capital-hq/hero": {
+  "unsplash": "https://unsplash.com/photos/1RT4txDDAbM",
+  "photographer": "S O C I A L . C U T",
+  "alt": "brown wooden 9-piece office table and chairs"
+ },
+ "projects/meridian-capital-hq/1": {
+  "unsplash": "https://unsplash.com/photos/iG-6szqm3f4",
+  "photographer": "JIRAN FAMILY",
+  "alt": "a white couch sitting in a living room next to a tall window"
+ },
+ "projects/meridian-capital-hq/2": {
+  "unsplash": "https://unsplash.com/photos/J1rNS2qv8BQ",
+  "photographer": "Nastuh Abootalebi",
+  "alt": "pink dining table with four chairs inside room"
+ },
+ "projects/meridian-capital-hq/3": {
+  "unsplash": "https://unsplash.com/photos/bIZJRVBLfOM",
+  "photographer": "Danielle Cerullo",
+  "alt": "white and gray office rolling chairs"
+ },
+ "projects/meridian-capital-hq/4": {
+  "unsplash": "https://unsplash.com/photos/gK9t2kYr-g8",
+  "photographer": "JIRAN FAMILY",
+  "alt": "a white couch sitting in a living room next to a window"
+ },
+ "projects/aurum-boutique-hotel/hero": {
+  "unsplash": "https://unsplash.com/photos/kfnWOD1Tbp8",
+  "photographer": "Neon Wang",
+  "alt": "Hotel reception desk with modern wooden furniture and seating"
+ },
+ "projects/aurum-boutique-hotel/1": {
+  "unsplash": "https://unsplash.com/photos/SKs0z89rL2w",
+  "photographer": "Antonio Araujo",
+  "alt": "A neatly made bed with white pillows and lamps"
+ },
+ "projects/aurum-boutique-hotel/2": {
+  "unsplash": "https://unsplash.com/photos/pt0nGH-NvoA",
+  "photographer": "Aalo Lens",
+  "alt": "Modern lobby with marble reception desk and plants"
+ },
+ "projects/aurum-boutique-hotel/3": {
+  "unsplash": "https://unsplash.com/photos/xQbmc2FnK3Y",
+  "photographer": "Antonio Araujo",
+  "alt": "A well-lit hotel room with seating and a desk"
+ },
+ "projects/aurum-boutique-hotel/4": {
+  "unsplash": "https://unsplash.com/photos/v9GN0U_1KUk",
+  "photographer": "Ambitious Studio* | Rick Barrett",
+  "alt": "a room with a table and chairs"
+ },
+ "projects/ember-oak-dining/hero": {
+  "unsplash": "https://unsplash.com/photos/e4B5AvA7Jqo",
+  "photographer": "Glenov Brankovic",
+  "alt": "a room with tables and chairs"
+ },
+ "projects/ember-oak-dining/1": {
+  "unsplash": "https://unsplash.com/photos/nulJA9vxJII",
+  "photographer": "Glenov Brankovic",
+  "alt": "a large room with tables and chairs"
+ },
+ "projects/ember-oak-dining/2": {
+  "unsplash": "https://unsplash.com/photos/iFyLBKmCrmQ",
+  "photographer": "Brands&People",
+  "alt": "brown wooden table and chairs"
+ },
+ "projects/ember-oak-dining/3": {
+  "unsplash": "https://unsplash.com/photos/TTuRieJW2YI",
+  "photographer": "Ruslan Keba",
+  "alt": "several table and chairs beside wall"
+ },
+ "projects/ember-oak-dining/4": {
+  "unsplash": "https://unsplash.com/photos/8l_RuuZrOyY",
+  "photographer": "takahiro taguchi",
+  "alt": "lighted lamps in room"
+ },
+ "projects/atelier-lounge-collection/hero": {
+  "unsplash": "https://unsplash.com/photos/FD8CGwuSB2Y",
+  "photographer": "Ambitious Studio* | Rick Barrett",
+  "alt": "a room with a table chairs and a lamp"
+ },
+ "projects/atelier-lounge-collection/1": {
+  "unsplash": "https://unsplash.com/photos/-JYshidA4Zw",
+  "photographer": "MChe Lee",
+  "alt": "A brown leather sofa with two cushions and a padded backrest"
+ },
+ "projects/atelier-lounge-collection/2": {
+  "unsplash": "https://unsplash.com/photos/jTsrs9VgbYI",
+  "photographer": "Puscas Adryan",
+  "alt": "A modern armchair with a wooden frame and blue upholstery"
+ },
+ "projects/atelier-lounge-collection/3": {
+  "unsplash": "https://unsplash.com/photos/KzVHA8SruE0",
+  "photographer": "Ryan Waldman",
+  "alt": "Wooden frame with radiating wooden slats"
+ },
+ "projects/atelier-lounge-collection/4": {
+  "unsplash": "https://unsplash.com/photos/Fv7X2bAA3BE",
+  "photographer": "Alex Gruber",
+  "alt": "a person playing a guitar"
+ },
+ "projects/maison-concept-store/hero": {
+  "unsplash": "https://unsplash.com/photos/izNyv6_tje0",
+  "photographer": "Declan Sun",
+  "alt": "Traditional wooden cabinets and chair in a room"
+ },
+ "projects/maison-concept-store/1": {
+  "unsplash": "https://unsplash.com/photos/A1bMeaftZi4",
+  "photographer": "ULISES RAMIREZ",
+  "alt": "Modern empty interior with wooden furniture and concrete walls"
+ },
+ "projects/maison-concept-store/2": {
+  "unsplash": "https://unsplash.com/photos/lkDZJL5psKU",
+  "photographer": "Zooey Li",
+  "alt": "Modern retail store interior with display shelves and products"
+ },
+ "projects/maison-concept-store/3": {
+  "unsplash": "https://unsplash.com/photos/Hafhe2KkG-E",
+  "photographer": "Declan Sun",
+  "alt": "Contemporary store interior with pillars and circular skylight"
+ },
+ "projects/maison-concept-store/4": {
+  "unsplash": "https://unsplash.com/photos/aGgmKntVLJQ",
+  "photographer": "ULISES RAMIREZ",
+  "alt": "Empty modern industrial space with exposed ceiling and textured walls"
+ },
+ "site/about-hero": {
+  "unsplash": "https://unsplash.com/photos/KR4u_ejqQGw",
+  "photographer": "Haris Illahi",
+  "alt": "Modern lobby with contemporary art installation and seating area"
+ }
+}

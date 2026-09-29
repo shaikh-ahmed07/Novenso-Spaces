@@ -52,7 +52,7 @@ Every image is a local file under `public/images/`. Replace a file with one of t
 
 - [ ] **Replace placeholder projects.** The seven projects in `src/data/projects.ts` are illustrative, with stock photography, names and locations. Replace them with real Novenso Spaces work.
 - [ ] **Replace stock photography.** Current images are from Unsplash (credits in `public/images/CREDITS.json`).
-- [ ] **Connect the enquiry form** (also receives chat call-back requests, marked `source: "chat"`) to email/CRM: implement `deliverEnquiry()` in `src/app/api/enquiry/route.ts` (a Resend example is included) and add the API key as an environment variable. Until then, submissions are validated and logged on the server only.
+- [ ] **Turn on enquiry emails.** The contact form and the chat's call-back requests are emailed to Gmail via `src/lib/mailer.ts`. Create a Google App Password (https://myaccount.google.com/apppasswords, needs 2-Step Verification) and set `GMAIL_USER`, `GMAIL_APP_PASSWORD` and optionally `ENQUIRY_TO` in `.env.local`, and in your hosting provider's environment variables for the live site. See `.env.example`. Without them, development logs enquiries to the terminal and production shows visitors an error with your email and WhatsApp.
 - [ ] Confirm the production domain in `src/data/site.ts` (`url`). It is used for canonical URLs, Open Graph and the sitemap.
 
 ## Structure

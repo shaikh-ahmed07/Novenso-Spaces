@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
+import { site } from "@/data/site";
 import { validateChatLead, validateEnquiry, type Enquiry } from "@/lib/enquiry";
+import { mailerConfigured, sendEnquiryEmail, type EnquirySource } from "@/lib/mailer";
 
 /**
  * POST /api/enquiry
  *
- * Validates the enquiry server-side, then hands it to `deliverEnquiry`.
- * To go live, implement `deliverEnquiry` with your email/CRM provider
- * (e.g. Resend, SendGrid, Postmark, a Google Sheet or HubSpot) and add the
- * provider's API key to your environment variables.
+ * Validates an enquiry from the contact form or the website chat, then emails
+ * it to Gmail (see src/lib/mailer.ts for the required environment variables).
  */
 export async function POST(request: Request) {
   let body: Partial<Enquiry> & { website?: string; source?: "form" | "chat" };
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error("[enquiry] delivery failed", err);
     return NextResponse.json(
-      { ok: false, error: "We couldn't send your enquiry right now. Please email us directly." },
+      { ok: false, error: `We couldn't send your enquiry right now. Please email ${site.email} or WhatsApp ${site.phone.display}.` },
       { status: 502 },
     );
   }
@@ -48,22 +48,12 @@ export async function POST(request: Request) {
   return NextResponse.json({ ok: true });
 }
 
-async function deliverEnquiry(enquiry: Enquiry, source: "form" | "chat") {
-  // TODO: connect an email service. Example with Resend:
-  //
-  // await fetch("https://api.resend.com/emails", {
-  //   method: "POST",
-  //   headers: {
-  //     Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({
-  //     from: "Novenso Website <website@novensospace.com>",
-  //     to: ["Novensosocial@gmail.com"],
-  //     reply_to: enquiry.email || undefined,
-  //     subject: `New ${source} enquiry: ${enquiry.projectType} — ${enquiry.name}`,
-  //     text: Object.entries(enquiry).map(([k, v]) => `${k}: ${v}`).join("\n"),
-  //   }),
-  // });
-  console.info(`[enquiry:${source}] received`, { ...enquiry, message: `${enquiry.message.slice(0, 80)}…` });
+async function deliverEnquiry(enquiry: Enquiry, source: EnquirySource) {
+  if (!mailerConfigured()) {
+    // Never silently drop real enquiries in production.
+    if (process.env.NODE_ENV === "production") throw new Error("Email is not configured (GMAIL_USER / GMAIL_APP_PASSWORD).");
+    console.warn(`[enquiry:${source}] email not configured; logging instead`, enquiry);
+    return;
+  }
+  await sendEnquiryEmail(enquiry, source);
 }

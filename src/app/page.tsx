@@ -1,5 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import AboutIntro from "@/components/sections/AboutIntro";
+import LeadershipStrip from "@/components/sections/LeadershipStrip";
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import ProcessSection from "@/components/sections/ProcessSection";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
@@ -12,6 +13,7 @@ export default function HomePage() {
     <>
       <Hero />
       <AboutIntro />
+      <LeadershipStrip />
       <ServicesGrid />
       <FeaturedProjects />
       <ProcessSection />

@@ -16,48 +16,27 @@ export default function Footer() {
 
       <div className="container-x relative">
         {/* Closing call to action */}
-        <div className="flex flex-col gap-6 border-b border-ivory/10 py-12 md:flex-row md:items-end md:justify-between md:py-20">
+        <div className="flex flex-col gap-6 border-b border-ivory/10 py-12 md:flex-row md:items-end md:justify-between md:py-16">
           <div>
             <p className="eyebrow flex items-center gap-3 text-brass-light">
               <span className="rule-brass" />
               Have a project in mind?
             </p>
-            <p className="mt-4 max-w-xl font-display text-[2rem] leading-[1.1] md:text-5xl">
+            <p className="mt-4 max-w-2xl font-display text-[2rem] leading-[1.1] md:text-5xl">
               Let&apos;s shape your <span className="italic text-brass-light">next space</span> together.
             </p>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap md:shrink-0 lg:flex-nowrap">
-            <Link
-              href={primaryCta.href}
-              className="flex min-h-12 items-center justify-center gap-3 bg-brass px-7 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-ink transition-colors hover:bg-brass-light"
-            >
-              {primaryCta.label} <span aria-hidden>→</span>
-            </Link>
-            <a
-              href={`mailto:${site.email}`}
-              className="flex min-h-12 items-center justify-center gap-3 border border-ivory/20 px-5 text-[0.85rem] text-ivory/85 transition-colors hover:border-brass hover:text-ivory"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
-                <rect x="3" y="5" width="18" height="14" />
-                <path d="M3 6l9 7 9-7" />
-              </svg>
-              {site.email}
-            </a>
-            <a
-              href={whatsappLink("Hello Novenso Spaces, I'd like to discuss a project.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex min-h-12 items-center justify-center gap-3 border border-ivory/20 px-5 text-[0.85rem] text-ivory/85 transition-colors hover:border-[#25D366] hover:text-ivory"
-            >
-              <WhatsAppIcon className="h-4 w-4 shrink-0 text-[#25D366]" />
-              {site.phone.display}
-            </a>
-          </div>
+          <Link
+            href={primaryCta.href}
+            className="flex min-h-12 shrink-0 items-center justify-center gap-3 bg-brass px-7 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-ink transition-colors hover:bg-brass-light"
+          >
+            {primaryCta.label} <span aria-hidden>→</span>
+          </Link>
         </div>
 
-        {/* Brand + links */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 py-12 md:grid-cols-12 md:gap-8 md:py-16">
-          <div className="col-span-2 md:col-span-5">
+        {/* Brand + links + contact */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 py-12 md:grid-cols-12 md:gap-x-8 md:py-14">
+          <div className="col-span-2 md:col-span-12 lg:col-span-4 lg:pr-8">
             <Logo tone="light" />
             <p className="mt-5 max-w-sm text-[0.9rem] leading-relaxed text-ivory/60">
               Interior design, project management, execution, contracting and bespoke furniture, from
@@ -66,7 +45,7 @@ export default function Footer() {
             <p className="mt-4 font-display text-lg italic text-brass-light">{site.tagline}</p>
           </div>
 
-          <nav aria-label="Footer" className="md:col-span-3 md:col-start-7">
+          <nav aria-label="Footer" className="md:col-span-3 lg:col-span-2">
             <h2 className="eyebrow mb-3 text-ivory/40">Navigate</h2>
             <ul>
               {mainNav.map((item) => (
@@ -79,7 +58,7 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <nav aria-label="Services" className="md:col-span-4">
+          <nav aria-label="Services" className="md:col-span-4 lg:col-span-3">
             <h2 className="eyebrow mb-3 text-ivory/40">Services</h2>
             <ul>
               {services.map((s) => (
@@ -91,6 +70,34 @@ export default function Footer() {
               ))}
             </ul>
           </nav>
+
+          <div className="col-span-2 md:col-span-5 lg:col-span-3">
+            <h2 className="eyebrow mb-3 text-ivory/40">Get in touch</h2>
+            <ul>
+              <li>
+                <a href={`mailto:${site.email}`} className={`${linkCls} break-all`}>
+                  {site.email}
+                </a>
+              </li>
+              <li>
+                <a href={`tel:${site.phone.tel}`} className={linkCls}>
+                  {site.phone.display}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={whatsappLink("Hello Novenso Spaces, I'd like to discuss a project.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${linkCls} gap-2`}
+                >
+                  <WhatsAppIcon className="h-4 w-4 shrink-0 text-[#25D366]" />
+                  Chat on WhatsApp
+                </a>
+              </li>
+              <li className="mt-3 text-[0.9rem] text-ivory/50">Hyderabad, India</li>
+            </ul>
+          </div>
         </div>
 
         {/* Legal */}

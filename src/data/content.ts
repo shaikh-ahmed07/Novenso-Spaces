@@ -1,3 +1,5 @@
+import type { StrengthIconName } from "@/components/ui/StrengthIcon";
+
 export type ProcessStep = {
   index: string;
   title: string;
@@ -151,3 +153,57 @@ export const eliteServices: EliteService[] = [
     imageAlt: "Close-up of ornate brass door handles",
   },
 ];
+
+export type Founder = {
+  given: string;
+  family: string;
+  role: string;
+  years: string;
+  yearsLabel: string;
+  bio: string;
+  strengths: { label: string; icon: StrengthIconName }[];
+};
+
+export const founders: Founder[] = [
+  {
+    given: "Muhammad",
+    family: "Muneeb Abdullah",
+    role: "Founder & Director",
+    years: "~10",
+    yearsLabel: "Years in architecture, construction & real estate",
+    bio: "Nearly a decade of experience across architecture, construction and real estate development. With a Master's degree from the UK and experience working alongside leading architectural practices in the UK, Muneeb brings an international perspective to strategy, development and project delivery.",
+    strengths: [
+      { label: "Strategy", icon: "strategy" },
+      { label: "Finance & Accounts", icon: "finance" },
+      { label: "Commercial Business Development", icon: "growth" },
+      { label: "Client Management", icon: "clients" },
+      { label: "Project Management", icon: "project" },
+      { label: "Compliance & Regulatory", icon: "compliance" },
+    ],
+  },
+  {
+    given: "Syed Fawad",
+    family: "Mustafa Quadri",
+    role: "Founder & Director",
+    years: "~15",
+    yearsLabel: "Years in interior design & execution",
+    bio: "Nearly 15 years of experience in interior design and execution. An Engineering graduate, Fawad brings extensive technical and hands-on expertise, leading design, estimation and project delivery from concept through completion.",
+    strengths: [
+      { label: "Design Leadership", icon: "design" },
+      { label: "Technical Business Development", icon: "technical" },
+      { label: "Estimation & Costing", icon: "estimation" },
+      { label: "Project Management", icon: "setSquare" },
+      { label: "Supply Chain", icon: "supply" },
+      { label: "Operations", icon: "operations" },
+    ],
+  },
+];
+
+/** Headline proof points drawn from the founders' backgrounds. */
+export const leadershipHighlights = [
+  { value: "~25", unit: "yrs", label: "Combined founder experience in design, construction and delivery" },
+  { value: "UK", unit: "", label: "Master's-trained, with experience in leading UK architectural practices" },
+  { value: "1", unit: "team", label: "Strategy, design and execution brought together under one direction" },
+];
+
+export const brandOfferings = ["Interiors", "Architecture", "Design & Build", "Turnkey Solutions"];

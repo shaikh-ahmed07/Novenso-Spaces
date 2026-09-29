@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/sections/PageHero";
 import AboutIntro from "@/components/sections/AboutIntro";
+import FoundersSection from "@/components/sections/FoundersSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import WhySection from "@/components/sections/WhySection";
 import CTASection from "@/components/sections/CTASection";
@@ -10,7 +10,7 @@ import FadeIn from "@/components/motion/FadeIn";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Novenso Spaces Private Limited is an integrated interior solutions company offering design, project management, execution, contracting and custom manufacturing under one roof.",
+    "Meet the founders of Novenso Spaces Private Limited, a founder-led integrated interior solutions company offering design, project management, execution, contracting and custom manufacturing under one roof.",
   alternates: { canonical: "/about" },
   openGraph: { url: "/about", images: ["/images/site/about-hero.jpg"] },
 };
@@ -33,15 +33,7 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero
-        eyebrow="About Novenso Spaces"
-        title="An interior partner from concept to completion."
-        emphasis={["completion."]}
-        intro="Design thinking, technical expertise and hands-on execution, brought together in one team."
-        image="/images/site/about-hero.jpg"
-        imageAlt="Double-height lobby with timber slats, marble floor and suspended brass lighting"
-      />
-
+      <FoundersSection />
       <AboutIntro showLink={false} />
 
       <section className="section-y bg-charcoal text-ivory">

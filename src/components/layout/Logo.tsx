@@ -28,11 +28,13 @@ export default function Logo({ tone = "dark", className = "", onClick }: Props) 
         priority
         className="h-9 w-auto sm:h-10"
       />
-      <span className={`flex flex-col leading-none transition-colors duration-500 ${text}`}>
-        <span className="font-display text-[1.2rem] tracking-[0.32em] sm:text-[1.35rem]">NOVENSO</span>
-        <span className="mt-1 flex items-center gap-2 text-[0.55rem] font-normal tracking-[0.5em]">
-          <span className="h-px w-3 bg-brass" />
-          SPACES
+      <span className={`flex flex-col items-center leading-none transition-colors duration-500 ${text}`}>
+        {/* Negative right margins cancel the trailing letter-spacing so both lines centre optically. */}
+        <span className="-mr-[0.32em] font-display text-[1.2rem] tracking-[0.32em] sm:text-[1.35rem]">NOVENSO</span>
+        <span className="mt-1 flex w-full items-center gap-2 text-[0.55rem] font-normal">
+          <span className="h-px flex-1 bg-brass" />
+          <span className="-mr-[0.5em] tracking-[0.5em]">SPACES</span>
+          <span className="h-px flex-1 bg-brass" />
         </span>
       </span>
     </Link>

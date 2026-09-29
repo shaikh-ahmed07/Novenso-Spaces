@@ -16,6 +16,7 @@
   --color-brass: #c18e31;
   --color-brass-light: #ddb25e;
   --color-brass-deep: #86601a;
+  --color-forest: #0f2a21; /* deep green from the brand stationery */
 
   --font-display: var(--font-display-face), "Bodoni Moda", Georgia, serif;
   --font-sans: var(--font-sans-face), "Manrope", ui-sans-serif, system-ui, sans-serif;

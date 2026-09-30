@@ -46,16 +46,23 @@ export default function ProjectGallery({ images, title }: { images: ProjectImage
     };
   }, [index, close, step]);
 
-  return (
-    <>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-6">
-        {images.map((img, i) => (
+  // With known sizes, lay images out in justified rows (up to 3 per row) at their
+  // true proportions, so small or portrait photos are never cropped or blown up.
+  const justified = images.every((img) => img.width && img.height);
+  const rows = justified
+    ? Array.from({ length: Math.ceil(images.length / 3) }, (_, r) => images.slice(r * 3, r * 3 + 3))
+    : [];
+
+  const tile = (img: ProjectImage, i: number) => {
+    const ratio = justified ? img.width! / img.height! : 0;
+    return (
           <m.button
             key={img.src}
             type="button"
             onClick={() => setIndex(i)}
             aria-label={`Open image ${i + 1} of ${images.length}: ${img.alt}`}
-            className={`group relative w-full cursor-zoom-in overflow-hidden bg-bone ${slot(i, images.length)}`}
+            style={justified ? { aspectRatio: `${img.width} / ${img.height}`, flex: `${ratio} 1 0%` } : undefined}
+            className={`group relative w-full cursor-zoom-in overflow-hidden bg-bone ${justified ? "" : slot(i, images.length)}`}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportOnce}
@@ -65,12 +72,26 @@ export default function ProjectGallery({ images, title }: { images: ProjectImage
               src={img.src}
               alt={img.alt}
               fill
-              sizes={slot(i, images.length) === layout[0] ? "100vw" : "(min-width: 768px) 58vw, 100vw"}
+              sizes={justified || slot(i, images.length) !== layout[0] ? "(min-width: 768px) 58vw, 100vw" : "100vw"}
               className="object-cover transition-transform duration-[1400ms] ease-[var(--ease-luxe)] group-hover:scale-[1.04]"
             />
           </m.button>
-        ))}
-      </div>
+    );
+  };
+
+  return (
+    <>
+      {justified ? (
+        <div className="flex flex-col gap-4 md:gap-6">
+          {rows.map((row, r) => (
+            <div key={r} className="flex flex-col gap-4 md:flex-row md:gap-6">
+              {row.map((img, j) => tile(img, r * 3 + j))}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-6">{images.map(tile)}</div>
+      )}
 
       <AnimatePresence>
         {index !== null && (

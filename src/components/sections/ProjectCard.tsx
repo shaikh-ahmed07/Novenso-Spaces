@@ -65,7 +65,7 @@ export default function ProjectCard({
               {project.location} <span className="mx-2 text-stone">/</span> {project.category}
             </p>
           </div>
-          <span className="mt-2 shrink-0 font-display text-sm italic text-taupe">{project.year}</span>
+          <span className="mt-2 shrink-0 font-display text-sm italic text-taupe">{project.status ?? project.service}</span>
         </div>
         <p className="mt-2 line-clamp-2 text-pretty text-sm leading-relaxed text-ash md:hidden">{project.summary}</p>
       </Link>

@@ -12,40 +12,42 @@ export const processSteps: ProcessStep[] = [
   {
     index: "01",
     title: "Discover",
-    description:
-      "We understand your requirements, lifestyle, business needs and vision, and study the site in detail before any design work begins.",
+    description: "Understanding the brief, lifestyle, business needs and project objectives.",
     image: "/images/process/discover.jpg",
     imageAlt: "Hand sketching initial ideas over printed drawings",
   },
   {
     index: "02",
     title: "Design",
-    description:
-      "We develop concepts, layouts, materials, finishes and detailed design solutions, refining them with you until every decision is resolved.",
+    description: "Concept, spatial planning, materials, detailing and design development.",
     image: "/images/process/design.jpg",
     imageAlt: "Floor plan drawn on a drafting board",
   },
   {
     index: "03",
-    title: "Plan",
-    description:
-      "We build the project schedule, budget, procurement plan and execution strategy, so cost and time are agreed before work starts on site.",
+    title: "Estimate",
+    description: "Scope definition, specifications, costing and commercial alignment.",
     image: "/images/process/plan.jpg",
     imageAlt: "Technical drawing on a drafting table",
   },
   {
     index: "04",
-    title: "Execute",
-    description:
-      "We coordinate site execution, contractors, vendors and materials, with quality checks at each stage rather than only at the end.",
+    title: "Source",
+    description: "Furniture, lighting, MEP, civil and specialist vendor coordination.",
+    image: "/images/elite/sourcing.jpg",
+    imageAlt: "Stacked samples of hardwood timber",
+  },
+  {
+    index: "05",
+    title: "Build",
+    description: "Execution, site coordination, quality control and project management.",
     image: "/images/process/execute.jpg",
     imageAlt: "Site team installing services from a scissor lift",
   },
   {
-    index: "05",
+    index: "06",
     title: "Deliver",
-    description:
-      "We complete the project with attention to detail, close out every snag and hand over a finished space that is ready to use.",
+    description: "Final detailing, finishing, coordination and handover.",
     image: "/images/process/deliver.jpg",
     imageAlt: "Completed bedroom interior with warm lighting",
   },
@@ -207,3 +209,66 @@ export const leadershipHighlights = [
 ];
 
 export const brandOfferings = ["Interiors", "Architecture", "Design & Build", "Turnkey Solutions"];
+
+export type Sector = { title: string; line: string; image: string; imageAlt: string };
+
+export const sectors: Sector[] = [
+  {
+    title: "Residential",
+    line: "Spaces that feel truly yours.",
+    image: "/images/sectors/residential.jpg",
+    imageAlt: "Warm living room with cream sectional sofa and timber-slatted wall",
+  },
+  {
+    title: "Workspace",
+    line: "Environments for people and performance.",
+    image: "/images/sectors/workspace.jpg",
+    imageAlt: "Office with timber desks, ergonomic chairs and glass partitions",
+  },
+  {
+    title: "Hospitality",
+    line: "Spaces that create lasting experiences.",
+    image: "/images/sectors/hospitality.jpg",
+    imageAlt: "Restaurant with green velvet chairs and warm pendant lights",
+  },
+  {
+    title: "Commercial",
+    line: "Interiors that engage, function and inspire.",
+    image: "/images/sectors/commercial.jpg",
+    imageAlt: "Retail interior with curved lit ceiling and marble counter",
+  },
+];
+
+/** "Our philosophy" from the company profile. */
+export const philosophy = [
+  { k: "Thoughtful Design", v: "Purpose-led spaces" },
+  { k: "Exceptional Execution", v: "Precision in every detail" },
+  { k: "Human Experience", v: "Designed around people" },
+  { k: "Lasting Value", v: "Built to endure" },
+];
+
+export const designDetailDelivery = [
+  {
+    title: "Design",
+    line: "Purposeful ideas.",
+    text: "Spaces shaped around people, function, character and experience.",
+  },
+  {
+    title: "Detail",
+    line: "Considered down to the last element.",
+    text: "Materials, proportions, lighting, finishes and craftsmanship brought together with intention.",
+  },
+  {
+    title: "Delivery",
+    line: "From vision to reality.",
+    text: "Coordinated planning, procurement and execution that carries the design through to completion.",
+  },
+];
+
+export const deliveryNetwork = [
+  { title: "Furniture", text: "Bespoke & custom furniture." },
+  { title: "Office Furniture", text: "Workstations, seating, storage and collaborative spaces." },
+  { title: "Lighting", text: "Decorative & architectural lighting." },
+  { title: "MEP", text: "Electrical, HVAC, plumbing and integrated building services." },
+  { title: "Civil & Specialist Works", text: "Civil, fabrication and specialist trades." },
+];

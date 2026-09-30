@@ -7,12 +7,18 @@ export const site = {
   legalName: "Novenso Spaces Private Limited",
   tagline: "Creating Spaces. Defining Experiences.",
   url: "https://novensospace.com",
-  email: "Novensosocial@gmail.com",
+  email: "novensospaces@gmail.com",
+  address: {
+    street: "Aaraa House, Om Nager Colony",
+    city: "Hyderabad",
+    region: "Telangana",
+    country: "India",
+  },
   phone: { display: "+91 85001 03000", tel: "+918500103000" },
   /** International format without "+" or spaces, as WhatsApp expects. */
   whatsapp: "918500103000",
   description:
-    "Novenso Spaces delivers premium interior design, project management, execution, contracting and bespoke interior solutions for residential, commercial and hospitality spaces.",
+    "Novenso Spaces is a design, architecture, build and turnkey interiors company creating residential, workspace, hospitality and commercial spaces that are purposeful, beautiful and built for the way people live, work and experience today.",
   shortDescription:
     "An integrated interior solutions company taking spaces from first concept through design, project management and execution to final handover.",
 } as const;

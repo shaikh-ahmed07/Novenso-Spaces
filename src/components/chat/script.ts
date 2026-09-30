@@ -199,6 +199,7 @@ function answerQuestion(text: string, lead: Lead): Turn | null {
 
   if (has("where", "location", "city", "office", "address", "visit"))
     return menuAgain(lead, [
+      `Our studio is at ${site.address.street}, ${site.address.city}, ${site.address.region}. We work on projects across India and internationally, including the UAE.`,
       "Tell us your city and the project location, and we'll confirm how we can support you there.",
       `You can also reach us directly on WhatsApp at ${site.phone.display}.`,
     ]);

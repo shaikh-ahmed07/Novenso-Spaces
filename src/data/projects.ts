@@ -1,363 +1,194 @@
 /**
- * Portfolio data.
+ * Portfolio data, taken from the Novenso Spaces Company Profile 2026.
  *
  * To add a project: add an object to `projects` below and put its images in
  * /public/images/projects/<slug>/. A case-study page is generated
  * automatically at /projects/<slug> and the project appears in the portfolio
- * grid, sitemap and category filters.
- *
- * NOTE: The projects below are illustrative placeholders using stock
- * photography. Replace them with real Novenso Spaces projects before launch.
+ * grid, sitemap and category filters. The long-form fields (concept,
+ * materials, execution, challenges, solutions, outcome) are optional; each
+ * section of the case-study page only appears when its field is filled in.
  */
 
 export const projectCategories = [
   "Residential",
-  "Commercial",
-  "Corporate",
+  "Workspace",
   "Hospitality",
-  "Custom Interiors",
+  "Commercial",
 ] as const;
 
 export type ProjectCategory = (typeof projectCategories)[number];
 
-export type ProjectImage = { src: string; alt: string };
+/** `width`/`height` are the file's pixel size, used to lay out small galleries without cropping. */
+export type ProjectImage = { src: string; alt: string; width?: number; height?: number };
 
 export type Project = {
   slug: string;
   name: string;
   location: string;
   category: ProjectCategory;
-  year: string;
+  /** What Novenso delivered, e.g. "Turnkey", "Design", "Execution". */
+  service: string;
+  status?: "Upcoming";
+  year?: string;
   area?: string;
   summary: string;
   cover: ProjectImage;
   overview: string;
-  concept: string;
   scope: string[];
-  materials: string[];
-  execution: string;
-  challenges: string;
-  solutions: string;
-  outcome: string;
+  concept?: string;
+  materials?: string[];
+  execution?: string;
+  challenges?: string;
+  solutions?: string;
+  outcome?: string;
   gallery: ProjectImage[];
   featured?: boolean;
 };
 
-const img = (slug: string, file: string, alt: string): ProjectImage => ({
+const img = (slug: string, file: string, alt: string, [width, height]: [number, number]): ProjectImage => ({
   src: `/images/projects/${slug}/${file}.jpg`,
   alt,
+  width,
+  height,
 });
 
 export const projects: Project[] = [
   {
-    slug: "lakeview-villa",
-    name: "The Lakeview Villa",
+    slug: "tata-aerospace-defence",
+    name: "Tata Aerospace & Defence",
+    location: "Adibatla, Hyderabad",
+    category: "Workspace",
+    service: "Interior Execution",
+    summary: "Workplace interiors executed with coordination, craft and site discipline.",
+    cover: img("tata-aerospace-defence", "hero", "Open-plan workplace with lounge seating and glass partitions", [774, 981]),
+    overview:
+      "Interior execution of workplace interiors for Tata Aerospace & Defence at Adibatla, Hyderabad, covering open workplace areas and glass-fronted executive spaces.",
+    scope: ["Interior execution", "Site coordination", "Detailing", "Workplace interiors", "Executive spaces"],
+    execution: "Built around coordination, craft and site discipline.",
+    gallery: [
+      img("tata-aerospace-defence", "1", "Glass-walled executive cabin with timber shelving and lounge sofa", [642, 458]),
+      img("tata-aerospace-defence", "2", "Executive cabins behind full-height glass partitions", [642, 501]),
+    ],
+    featured: true,
+  },
+  {
+    slug: "residence-3bhk-hyderabad",
+    name: "3 BHK Residence",
     location: "Hyderabad",
     category: "Residential",
-    year: "2025",
-    area: "8,400 sq ft",
-    summary:
-      "A private residence opened up to the water, with quiet materials and furniture made for the house.",
-    cover: img("lakeview-villa", "hero", "Bright villa bedroom with floor-to-ceiling glazing overlooking a lake"),
+    service: "Turnkey",
+    summary: "A turnkey family home shaped through considered design, bespoke detailing and purposeful execution.",
+    cover: img("residence-3bhk-hyderabad", "hero", "Children's room with sage wardrobes, study desk and backlit wall feature", [694, 419]),
     overview:
-      "A family home on the water's edge, redesigned so that every principal room faces the view. The brief called for a calm, low-maintenance interior that could host large family gatherings without feeling formal.",
-    concept:
-      "A restrained palette of pale oak, honed stone and textured plaster lets the landscape lead. Furniture is low and soft-edged so the sightlines to the lake remain unbroken.",
-    scope: [
-      "Full interior design",
-      "Space re-planning",
-      "Turnkey execution",
-      "Custom furniture & sofas",
-      "Lighting design",
-      "Styling & handover",
-    ],
-    materials: [
-      "Brushed white oak flooring",
-      "Honed travertine",
-      "Lime plaster walls",
-      "Bouclé & linen upholstery",
-      "Brushed brass fittings",
-    ],
-    execution:
-      "Delivered in two phases while the family stayed in the guest wing. Wet trades were sequenced first, with joinery pre-fabricated off-site to reduce time on site.",
-    challenges:
-      "Existing columns interrupted the main living space, and strong afternoon glare made the lake-facing rooms uncomfortable.",
-    solutions:
-      "Columns were wrapped into built-in shelving and seating niches. Layered sheers and motorised blinds control glare while keeping the view.",
-    outcome:
-      "A home that feels open and settled, with bespoke seating sized to the rooms and a finish level the family can live with every day.",
+      "A turnkey 3 BHK residence in Hyderabad, taken from design through execution. Purposeful planning, bespoke detailing and refined execution, down to a playful children's room with custom wardrobes, study and upholstered bed.",
+    scope: ["Interior design", "Turnkey execution", "Custom wardrobes & joinery", "Upholstered bed", "Lighting"],
     gallery: [
-      img("lakeview-villa", "1", "Soft neutral living room with sculptural sofas and arched doorway"),
-      img("lakeview-villa", "2", "Bedroom with timber wall panelling and grey upholstered lounge chair"),
-      img("lakeview-villa", "3", "Dining room with linear pendant light and upholstered chairs"),
-      img("lakeview-villa", "4", "Marble bathroom with twin brass-framed mirrors"),
+      img("residence-3bhk-hyderabad", "1", "Upholstered pink bed below an elephant-motif wall with backlit panels", [211, 419]),
+      img("residence-3bhk-hyderabad", "2", "Full-height wardrobe beside a study desk with sage fluted panelling", [212, 419]),
     ],
     featured: true,
   },
   {
-    slug: "meridian-workplace",
-    name: "Meridian Workplace",
-    location: "Bengaluru",
-    category: "Corporate",
-    year: "2025",
-    area: "22,000 sq ft",
-    summary:
-      "A headquarters fit-out balancing focused work, collaboration and client-facing spaces.",
-    cover: img("meridian-workplace", "hero", "Corporate meeting room with timber table and tan leather chairs"),
-    overview:
-      "A full-floor headquarters for a growing professional services firm. The workplace needed to support hybrid working, client meetings and a strong brand presence on arrival.",
-    concept:
-      "Warm timber, soft acoustic finishes and daylight-led planning create a workplace that feels considered rather than corporate. Meeting rooms line the core so the perimeter stays open.",
-    scope: [
-      "Workplace strategy & planning",
-      "Interior design",
-      "Interior PMC",
-      "MEP coordination",
-      "Execution & fit-out",
-      "Loose furniture procurement",
-    ],
-    materials: [
-      "Oak veneer wall panelling",
-      "Acoustic fabric panels",
-      "Terrazzo reception floor",
-      "Glass partition systems",
-      "Powder-coated metal details",
-    ],
-    execution:
-      "Executed on an occupied building with strict working hours. Noisy works were scheduled out of hours and a detailed logistics plan managed deliveries through a shared goods lift.",
-    challenges:
-      "A tight twelve-week programme and a low slab-to-slab height limited ceiling services.",
-    solutions:
-      "Exposed, carefully organised services in open areas and slim-profile ceilings in meeting rooms kept height where it mattered. Early procurement of long-lead items protected the programme.",
-    outcome:
-      "Handed over on programme, giving the team a workplace that supports both focused and collaborative work.",
-    gallery: [
-      img("meridian-workplace", "1", "Bright lounge area with curved white seating and tall windows"),
-      img("meridian-workplace", "2", "Boardroom with pendant lights and blush upholstered chairs"),
-      img("meridian-workplace", "3", "Large conference room with white chairs and city views"),
-      img("meridian-workplace", "4", "Open-plan breakout area with soft seating"),
-    ],
-    featured: true,
-  },
-  {
-    slug: "aurum-boutique-hotel",
-    name: "Aurum Boutique Hotel",
-    location: "Goa",
-    category: "Hospitality",
-    year: "2024",
-    area: "36 keys",
-    summary:
-      "Lobby, lounge and guest rooms for an intimate hotel built around warmth and craft.",
-    cover: img("aurum-boutique-hotel", "hero", "Hotel reception with golden fluted wall and timber desk"),
-    overview:
-      "Interior design and turnkey delivery for a boutique hotel's arrival lobby, lounge bar and guest rooms. The owners wanted a hotel that felt personal, with a strong sense of place.",
-    concept:
-      "A golden, fluted backdrop anchors the lobby. Guest rooms continue the warm palette with custom headboards, lounge seating and handcrafted lighting.",
-    scope: [
-      "Hospitality interior design",
-      "FF&E specification",
-      "Custom headboards & seating",
-      "Execution & fit-out",
-      "Mock-up room",
-      "Pre-opening styling",
-    ],
-    materials: [
-      "Fluted metallic wall finish",
-      "Natural stone flooring",
-      "Walnut joinery",
-      "Performance velvet upholstery",
-      "Handblown glass lighting",
-    ],
-    execution:
-      "A full mock-up room was built and approved before rolling out to all keys, allowing detail and cost refinements early.",
-    challenges:
-      "Hotel-grade durability was required without losing the handcrafted character the owners wanted.",
-    solutions:
-      "Performance fabrics, sealed stone and robust joinery details were specified, with craft reserved for touchpoints guests notice most.",
-    outcome:
-      "The hotel opened on schedule with interiors that give it a distinct, personal character.",
-    gallery: [
-      img("aurum-boutique-hotel", "1", "Hotel bed with crisp white linens and warm lamp light"),
-      img("aurum-boutique-hotel", "2", "Hotel lobby with timber-slatted reception and stone floor"),
-      img("aurum-boutique-hotel", "3", "Guest suite with armchairs and a writing desk"),
-      img("aurum-boutique-hotel", "4", "Dark lounge corner with teal armchairs and a floor lamp"),
-    ],
-    featured: true,
-  },
-  {
-    slug: "atelier-lounge-collection",
-    name: "Atelier Lounge Collection",
-    location: "Novenso Workshop",
-    category: "Custom Interiors",
-    year: "2025",
-    summary:
-      "A series of made-to-measure sofas and lounge chairs designed and built in-house.",
-    cover: img("atelier-lounge-collection", "hero", "Moody lounge with teal armchairs and a sculptural floor lamp"),
-    overview:
-      "A collection of bespoke seating developed for private residences and hospitality clients, from compact lounge chairs to deep modular sofas.",
-    concept:
-      "Generous proportions, tailored seams and exposed timber details. Each piece is adapted in size, depth and firmness to the room and the client.",
-    scope: [
-      "Furniture design",
-      "Prototyping",
-      "Frame manufacturing",
-      "Upholstery",
-      "Finishing",
-      "Delivery & installation",
-    ],
-    materials: [
-      "Kiln-dried hardwood frames",
-      "High-resilience foam & feather wraps",
-      "Velvet, linen & bouclé",
-      "Full-grain leather",
-      "Solid walnut & oak details",
-    ],
-    execution:
-      "Every piece is prototyped at full scale for client sign-off, then built in our workshop with quality checks at frame, foam and upholstery stages.",
-    challenges:
-      "Clients wanted exact sizes and comfort levels that standard ranges do not offer.",
-    solutions:
-      "A modular frame system lets us change dimensions and seat depth without redesigning from scratch, while keeping lead times predictable.",
-    outcome:
-      "Pieces that fit their rooms precisely and are built to be re-upholstered rather than replaced.",
-    gallery: [
-      img("atelier-lounge-collection", "1", "Tan leather sofa with deep, tailored seat cushions"),
-      img("atelier-lounge-collection", "2", "Round lounge chair with timber base and grey upholstery"),
-      img("atelier-lounge-collection", "3", "Timber frame detail with radiating slats"),
-      img("atelier-lounge-collection", "4", "Craftsman's hands carving a timber panel"),
-    ],
-    featured: true,
-  },
-  {
-    slug: "skyline-residence",
-    name: "Skyline Residence",
-    location: "Mumbai",
-    category: "Residential",
-    year: "2024",
-    area: "3,200 sq ft",
-    summary:
-      "A high-rise apartment with gallery-like living spaces and quietly luxurious bedrooms.",
-    cover: img("skyline-residence", "hero", "Modern living room with grey sofa and large abstract artwork"),
-    overview:
-      "A complete interior for a high-rise apartment, designed for a couple who collect contemporary art and entertain often.",
-    concept:
-      "Soft greys and deep charcoals set up the art. Lighting is layered so the apartment works as well at night as during the day.",
-    scope: [
-      "Interior design",
-      "Execution",
-      "Kitchen & wardrobe joinery",
-      "Art lighting",
-      "Custom sofas",
-    ],
-    materials: [
-      "Microcement feature walls",
-      "Smoked oak joinery",
-      "Calacatta-look porcelain",
-      "Wool & silk rugs",
-    ],
-    execution:
-      "Executed within a residential tower with restricted working hours and lift access, requiring careful material logistics.",
-    challenges:
-      "Low ceilings and exposed beams limited lighting options.",
-    solutions:
-      "Recessed profiles and track systems were integrated into slim bulkheads that also conceal air-conditioning.",
-    outcome:
-      "An apartment that feels calm and generous, with art that looks as intended from every angle.",
-    gallery: [
-      img("skyline-residence", "1", "Dark bedroom with grey upholstered bed and round mirror"),
-      img("skyline-residence", "2", "Dining area with marble backsplash and globe chandelier"),
-      img("skyline-residence", "3", "Dining room with backlit shelving and city view"),
-      img("skyline-residence", "4", "Bathroom with fluted vanity and marble walls"),
-    ],
-  },
-  {
-    slug: "ember-oak-dining",
-    name: "Ember & Oak",
-    location: "Hyderabad",
-    category: "Hospitality",
-    year: "2024",
-    area: "4,500 sq ft",
-    summary:
-      "A warm, timber-rich restaurant designed around an open kitchen.",
-    cover: img("ember-oak-dining", "hero", "Restaurant dining room with timber ceiling and pendant lights"),
-    overview:
-      "Interior design and execution for a chef-led restaurant where the kitchen is part of the experience.",
-    concept:
-      "Exposed timber, warm pendants and brick create an intimate room that glows at night, with the open kitchen as its focal point.",
-    scope: [
-      "Restaurant interior design",
-      "Kitchen coordination",
-      "Execution",
-      "Custom banquettes",
-      "Lighting design",
-    ],
-    materials: [
-      "Reclaimed timber ceiling",
-      "Exposed brick",
-      "Leather banquettes",
-      "Blackened steel",
-    ],
-    execution:
-      "Delivered in ten weeks with fire, kitchen and exhaust services closely coordinated with the design.",
-    challenges:
-      "Acoustic comfort in a room with many hard surfaces.",
-    solutions:
-      "Acoustic panels are hidden within the timber ceiling, and upholstered banquettes absorb sound around the room.",
-    outcome:
-      "A lively room that is still comfortable for conversation.",
-    gallery: [
-      img("ember-oak-dining", "1", "Restaurant with honeycomb ceiling and timber tables"),
-      img("ember-oak-dining", "2", "Open kitchen bar with timber counter"),
-      img("ember-oak-dining", "3", "Dining room with wine display and decorative pendants"),
-      img("ember-oak-dining", "4", "Low-lit restaurant tables set for evening service"),
-    ],
-  },
-  {
-    slug: "maison-concept-store",
-    name: "Maison Concept Store",
-    location: "Delhi",
+    slug: "24x7-ai-office",
+    name: "24x7.ai",
+    location: "Reception & Cafeteria",
     category: "Commercial",
-    year: "2023",
-    area: "2,800 sq ft",
-    summary:
-      "A flagship retail store with crafted timber display joinery.",
-    cover: img("maison-concept-store", "hero", "Retail interior with timber cabinets and green artwork"),
+    service: "Design",
+    summary: "Reception and cafeteria designed around brand identity, spatial flow and functional detail.",
+    cover: img("24x7-ai-office", "hero", "Reception with curved white desk, timber wave wall and circular ceiling light", [569, 353]),
     overview:
-      "A flagship store for a lifestyle brand, designed to feel more like a well-kept home than a shop.",
-    concept:
-      "Warm timber casework and domestic-scale furniture slow visitors down and let products be handled and explored.",
-    scope: [
-      "Retail interior design",
-      "Custom display joinery",
-      "Execution",
-      "Visual merchandising support",
-    ],
-    materials: [
-      "Solid ash & oak joinery",
-      "Lime-washed walls",
-      "Polished concrete floor",
-      "Linen & brass details",
-    ],
-    execution:
-      "All display joinery was pre-fabricated and installed over five nights to meet the mall's fit-out window.",
-    challenges:
-      "Flexible display for changing seasonal collections.",
-    solutions:
-      "A modular shelving system with concealed fixings lets the store be reconfigured by staff without tools.",
-    outcome:
-      "A store that invites visitors to linger, and a fit-out system the brand can adapt as it grows.",
+      "Commercial interiors for the reception and cafeteria at 24x7.ai: customer-facing environments designed to shape first impressions, movement, comfort and experience.",
+    scope: ["Reception design", "Cafeteria design", "Commercial interiors"],
     gallery: [
-      img("maison-concept-store", "1", "Retail space with timber display tables and fitting room"),
-      img("maison-concept-store", "2", "Bright retail interior with white display units"),
-      img("maison-concept-store", "3", "Retail hall with timber-clad ceiling, skylight and steel columns"),
-      img("maison-concept-store", "4", "Minimal gallery-like retail interior with golden panels"),
+      img("24x7-ai-office", "1", "Cafeteria counter with timber slat ceiling and patterned floor", [569, 353]),
+    ],
+    featured: true,
+  },
+  {
+    slug: "boost-beauty-lounge",
+    name: "Boost Beauty Lounge",
+    location: "UAE",
+    category: "Hospitality",
+    service: "Commercial / Hospitality",
+    summary: "A customer-facing beauty lounge designed for first impressions, comfort and flow.",
+    cover: img("boost-beauty-lounge", "hero", "Beauty lounge reception with branded arch and white counter", [684, 383]),
+    overview:
+      "A beauty lounge in the UAE, designed as a customer-facing environment where brand identity, spatial flow and functional detail shape the experience from the reception to the styling floor.",
+    scope: ["Hospitality interiors", "Reception & brand wall", "Styling stations", "Lighting"],
+    gallery: [
+      img("boost-beauty-lounge", "1", "Styling floor with mirrored stations and cream salon chairs", [217, 383]),
+    ],
+    featured: true,
+  },
+  {
+    slug: "corporate-office-kondapur",
+    name: "Corporate Office",
+    location: "Kondapur, Hyderabad",
+    category: "Workspace",
+    service: "Interior Design",
+    summary: "Meeting room and cabins for a corporate office, with spatial planning and detailing.",
+    cover: img("corporate-office-kondapur", "hero", "Meeting room with timber slat ceiling, dome pendants and tan chairs", [903, 975]),
+    overview:
+      "Interior design for a corporate office in Kondapur, Hyderabad, covering spatial planning, interiors and detailing for the meeting room and private cabins.",
+    scope: ["Spatial planning", "Interior design", "Detailing", "Meeting room", "Cabins"],
+    gallery: [
+      img("corporate-office-kondapur", "1", "Cabin with grey and orange shelving and green lounge chairs", [550, 500]),
+      img("corporate-office-kondapur", "2", "Cabin with timber bookshelves, glass desk and blue carpet", [550, 501]),
+    ],
+  },
+  {
+    slug: "residence-nizamabad",
+    name: "Residential Interior",
+    location: "Nizamabad",
+    category: "Residential",
+    service: "Design",
+    summary: "A family home with a sculpted contemporary facade and soft, warm interiors.",
+    cover: img("residence-nizamabad", "hero", "Contemporary house facade at dusk with stone cladding and curved timber frame", [372, 322]),
+    overview:
+      "Design for a residence in Nizamabad, from the facade to the kitchen and bedrooms, shaped through considered design and bespoke detailing.",
+    scope: ["Elevation design", "Interior design", "Modular kitchen", "Bedroom design"],
+    gallery: [
+      img("residence-nizamabad", "1", "Modular kitchen in blush and white with glass-fronted tall unit", [372, 322]),
+      img("residence-nizamabad", "2", "Bedroom with pink upholstered bed and angled wall panelling", [372, 322]),
+    ],
+  },
+  {
+    slug: "residence-dubai-client",
+    name: "Residential Interior",
+    location: "For a Dubai-based client",
+    category: "Residential",
+    service: "Design",
+    summary: "A residence shaped by individual character, layered materials and refined detailing.",
+    cover: img("residence-dubai-client", "hero", "Bedroom with tufted headboard, timber wall and warm wall lights", [694, 383]),
+    overview:
+      "A residential interior designed for a Dubai-based client, with individual character, layered materials and refined detailing throughout.",
+    scope: ["Interior design", "Bedroom joinery", "Partition & storage design", "Lighting"],
+    gallery: [
+      img("residence-dubai-client", "1", "Timber partition with floral cut-outs leading to the kitchen", [446, 383]),
+    ],
+  },
+  {
+    slug: "farmhouse-vikarabad",
+    name: "Farmhouse",
+    location: "Vikarabad",
+    category: "Residential",
+    service: "Design",
+    status: "Upcoming",
+    summary: "A private retreat in a classical language of mouldings, chandeliers and soft colour.",
+    cover: img("farmhouse-vikarabad", "hero", "Classical dining room with crystal chandelier and upholstered chairs", [372, 353]),
+    overview:
+      "An upcoming farmhouse at Vikarabad: a private retreat with ornate ceilings, crystal chandeliers and layered classical detailing.",
+    scope: ["Interior design", "Ceiling & moulding design", "Lighting", "Furniture & styling"],
+    gallery: [
+      img("farmhouse-vikarabad", "1", "Living room with ornate ceiling medallion and chandelier", [372, 353]),
+      img("farmhouse-vikarabad", "2", "Bedroom suite with carved wall panels and a canopy bed", [372, 353]),
     ],
   },
 ];
 
-export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
-
 export const featuredProjects = projects.filter((p) => p.featured);
+
+export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
 
 export const getAdjacentProjects = (slug: string) => {
   const i = projects.findIndex((p) => p.slug === slug);

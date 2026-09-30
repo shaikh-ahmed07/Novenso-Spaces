@@ -83,6 +83,13 @@ const organizationJsonLd = {
   url: site.url,
   email: site.email,
   telephone: site.phone.tel,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.address.street,
+    addressLocality: site.address.city,
+    addressRegion: site.address.region,
+    addressCountry: "IN",
+  },
   logo: `${site.url}/brand/novenso-logo-full.jpg`,
   image: `${site.url}/images/hero/home-hero.jpg`,
   description: site.description,

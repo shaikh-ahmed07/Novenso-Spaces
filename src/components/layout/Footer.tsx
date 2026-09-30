@@ -95,7 +95,13 @@ export default function Footer() {
                   Chat on WhatsApp
                 </a>
               </li>
-              <li className="mt-3 text-[0.9rem] text-ivory/50">Hyderabad, India</li>
+              <li className="mt-3 text-[0.9rem] leading-relaxed text-ivory/50">
+                <address className="not-italic">
+                  {site.address.street},
+                  <br />
+                  {site.address.city}, {site.address.region}, {site.address.country}
+                </address>
+              </li>
             </ul>
           </div>
         </div>

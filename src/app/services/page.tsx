@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/sections/PageHero";
 import CTASection from "@/components/sections/CTASection";
 import ProcessSection from "@/components/sections/ProcessSection";
+import DeliveryNetwork from "@/components/sections/DeliveryNetwork";
 import ImageReveal from "@/components/motion/ImageReveal";
 import FadeIn from "@/components/motion/FadeIn";
 import AnimatedText from "@/components/motion/AnimatedText";
@@ -104,6 +105,7 @@ export default function ServicesPage() {
         })}
       </div>
 
+      <DeliveryNetwork />
       <ProcessSection />
       <CTASection />
     </>

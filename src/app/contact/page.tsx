@@ -79,6 +79,15 @@ export default function ContactPage() {
               </div>
             </FadeIn>
 
+            <FadeIn delay={0.14} className="mt-10 border-t border-ink/10 pt-8">
+              <p className="eyebrow text-ash">Studio</p>
+              <address className="mt-3 text-[1.05rem] not-italic leading-relaxed text-charcoal">
+                {site.address.street}
+                <br />
+                {site.address.city}, {site.address.region}, {site.address.country}
+              </address>
+            </FadeIn>
+
             <FadeIn delay={0.15} className="mt-10 border-t border-ink/10 pt-8">
               <p className="eyebrow text-ash">What happens next</p>
               <ol className="mt-5 space-y-4">

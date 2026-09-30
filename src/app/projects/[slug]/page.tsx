@@ -53,14 +53,16 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
   const meta = [
     { label: "Location", value: project.location },
     { label: "Category", value: project.category },
-    { label: "Year", value: project.year },
+    { label: "Service", value: project.status ? `${project.service} · ${project.status}` : project.service },
+    ...(project.year ? [{ label: "Year", value: project.year }] : []),
     ...(project.area ? [{ label: "Scale", value: project.area }] : []),
   ];
 
   const story = [
     { label: "Challenges", body: project.challenges },
     { label: "Solutions", body: project.solutions },
-  ];
+  ].filter((s): s is { label: string; body: string } => Boolean(s.body));
+  const materials = project.materials ?? [];
 
   return (
     <article>
@@ -97,6 +99,7 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
       </section>
 
       {/* Concept */}
+      {project.concept && (
       <section className="bg-ivory pb-16 md:pb-28">
         <div className="container-x grid items-end gap-6 md:gap-12 lg:grid-cols-12 lg:gap-16">
           <FadeIn className="relative aspect-[4/3] overflow-hidden bg-bone lg:col-span-7">
@@ -118,10 +121,11 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
           </div>
         </div>
       </section>
+      )}
 
       {/* Scope + Materials */}
       <section className="section-y bg-bone">
-        <div className="container-x grid gap-12 md:grid-cols-2 lg:gap-24">
+        <div className={`container-x grid gap-12 lg:gap-24 ${materials.length ? "md:grid-cols-2" : ""}`}>
           <div>
             <FadeIn>
               <Label>Scope of Work</Label>
@@ -140,12 +144,13 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
               ))}
             </ul>
           </div>
+          {materials.length > 0 && (
           <div>
             <FadeIn>
               <Label>Materials &amp; Finishes</Label>
             </FadeIn>
             <ul className="mt-6 border-t border-ink/10 md:mt-10">
-              {project.materials.map((item, i) => (
+              {materials.map((item, i) => (
                 <FadeIn
                   as="li"
                   key={item}
@@ -158,10 +163,12 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
               ))}
             </ul>
           </div>
+          )}
         </div>
       </section>
 
       {/* Execution */}
+      {project.execution && (
       <section className="section-y bg-ink text-ivory">
         <div className="container-x grid gap-6 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
@@ -177,6 +184,7 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
           </div>
         </div>
       </section>
+      )}
 
       {/* Gallery */}
       <section className="section-y bg-ivory" aria-label="Project gallery">
@@ -185,13 +193,15 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
             <Label>Project Gallery</Label>
             <span className="text-xs text-ash">Select an image to enlarge</span>
           </FadeIn>
-          <ProjectGallery images={project.gallery} title={project.name} />
+          <ProjectGallery images={[project.cover, ...project.gallery]} title={project.name} />
         </div>
       </section>
 
       {/* Challenges / Solutions / Outcome */}
+      {(story.length > 0 || project.outcome) && (
       <section className="bg-ivory pb-16 md:pb-32">
         <div className="container-x">
+          {story.length > 0 && (
           <div className="grid gap-10 border-t border-ink/10 pt-12 md:grid-cols-2 md:gap-16 md:pt-16">
             {story.map((s, i) => (
               <FadeIn key={s.label} delay={i * 0.1}>
@@ -200,7 +210,9 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
               </FadeIn>
             ))}
           </div>
+          )}
 
+          {project.outcome && (
           <FadeIn className="mt-12 bg-charcoal p-6 text-ivory md:mt-24 md:p-16 lg:p-20">
             <h2 className="eyebrow flex items-center gap-4 text-brass-light">
               <span className="rule-brass" />
@@ -208,8 +220,10 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
             </h2>
             <p className="display-md mt-5 max-w-4xl text-balance md:mt-8">{project.outcome}</p>
           </FadeIn>
+          )}
         </div>
       </section>
+      )}
 
       {/* Prev / next */}
       <nav aria-label="More projects" className="grid border-t border-ink/10 bg-ivory md:grid-cols-2">

@@ -3,16 +3,9 @@ import FadeIn from "@/components/motion/FadeIn";
 import ImageReveal from "@/components/motion/ImageReveal";
 import ParallaxImage from "@/components/motion/ParallaxImage";
 import ButtonLink from "@/components/ui/ButtonLink";
-import { capabilities } from "@/data/content";
+import { capabilities, philosophy } from "@/data/content";
 
 type Props = { showLink?: boolean };
-
-const pillars = [
-  { k: "Design", v: "Concept to detailed drawings" },
-  { k: "Manage", v: "Budgets, schedules, vendors" },
-  { k: "Execute", v: "Every trade, on site" },
-  { k: "Craft", v: "Custom sofas & furniture" },
-];
 
 /** Editorial introduction: statement, offset imagery, pillars and capabilities. */
 export default function AboutIntro({ showLink = true }: Props) {
@@ -25,8 +18,8 @@ export default function AboutIntro({ showLink = true }: Props) {
         </FadeIn>
 
         <AnimatedText
-          text={"We don't just design interiors.\nWe bring spaces to life."}
-          emphasis={["life."]}
+          text={"A new sense of space."}
+          emphasis={["space."]}
           className="display-lg max-w-5xl text-balance text-ink"
         />
 
@@ -53,23 +46,26 @@ export default function AboutIntro({ showLink = true }: Props) {
           {/* Copy */}
           <div className="mt-6 flex flex-col md:col-span-6 md:mt-0 md:pl-10 lg:col-span-5 lg:col-start-8 lg:pl-0">
             <FadeIn as="p" className="lead text-pretty text-charcoal">
-              Novenso Spaces Private Limited is an integrated interior solutions company. We take
-              residential, commercial and hospitality projects from the first conversation to a
-              finished space, ready to use.
+              At Novenso, we believe a space is more than what you see. It is how you move through it,
+              how it feels, and how it becomes part of everyday life.
             </FadeIn>
             <FadeIn as="p" delay={0.05} className="mt-4 text-pretty text-[0.95rem] leading-relaxed text-ash">
-              Design, project management, site execution and custom manufacturing sit within one team,
-              so what&apos;s agreed on paper is built faithfully on site.
+              Design, architecture, build and turnkey interiors sit within one team, across residential,
+              workspace, hospitality and commercial projects, so what&apos;s agreed on paper is built
+              faithfully on site.
             </FadeIn>
 
-            {/* Four pillars: 2×2 on phones */}
-            <FadeIn delay={0.1} className="mt-8 grid grid-cols-2 border-l border-t border-ink/10">
-              {pillars.map((p) => (
+            {/* Our philosophy: 2×2 */}
+            <FadeIn delay={0.1} className="mt-8">
+              <h3 className="eyebrow mb-4 text-ash">Our philosophy</h3>
+              <div className="grid grid-cols-2 border-l border-t border-ink/10">
+              {philosophy.map((p) => (
                 <div key={p.k} className="border-b border-r border-ink/10 p-4 md:p-5">
                   <p className="font-display text-xl text-ink md:text-2xl">{p.k}</p>
                   <p className="mt-1 text-[0.8rem] leading-snug text-ash">{p.v}</p>
                 </div>
               ))}
+              </div>
             </FadeIn>
 
             <FadeIn delay={0.15} className="mt-8">

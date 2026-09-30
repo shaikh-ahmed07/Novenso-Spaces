@@ -78,9 +78,9 @@ export default function ProcessSection() {
       <div className="container-x">
         <SectionHeading
           eyebrow="Our Process"
-          title="A clear path from first idea to final handover."
-          emphasis={["final", "handover."]}
-          intro="Five stages, each with defined outcomes and sign-offs, so you always know where your project stands."
+          title="From concept to creation."
+          emphasis={["creation."]}
+          intro="One team, one process. A seamless journey from the first idea to a fully realised space."
         />
 
         {/* Phones & tablets: swipe through the steps */}
